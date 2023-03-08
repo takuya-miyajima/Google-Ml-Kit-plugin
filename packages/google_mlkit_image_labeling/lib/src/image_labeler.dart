@@ -38,11 +38,7 @@ class ImageLabeler {
 }
 
 /// Type of [ImageLabeler].
-enum ImageLabelerType {
-  base,
-  local,
-  remote,
-}
+enum ImageLabelerType { base, local, remote, appLocal }
 
 /// Base options for [ImageLabeler].
 class ImageLabelerOptions {
@@ -121,6 +117,36 @@ class FirebaseLabelerOption extends ImageLabelerOptions {
         'confidenceThreshold': confidenceThreshold,
         'type': type.name,
         'modelName': modelName,
+        'maxCount': maxCount
+      };
+}
+
+/// Options for [ImageLabeler] using a custom local model in app data folder.
+class AppLocalLabelerOptions extends ImageLabelerOptions {
+  /// Path where the local custom model is stored.
+  final String modelPath;
+
+  /// Max number of results detector will return.
+  /// Default value is set to 10.
+  final int maxCount;
+
+  /// Indicates that it uses a custom local model to process images.
+  @override
+  final ImageLabelerType type = ImageLabelerType.appLocal;
+
+  /// Constructor to create an instance of [LocalLabelerOptions].
+  AppLocalLabelerOptions(
+      {double confidenceThreshold = 0.5,
+      required this.modelPath,
+      this.maxCount = 10})
+      : super(confidenceThreshold: confidenceThreshold);
+
+  /// Returns a json representation of an instance of [LocalLabelerOptions].
+  @override
+  Map<String, dynamic> toJson() => {
+        'confidenceThreshold': confidenceThreshold,
+        'type': type.name,
+        'path': modelPath,
         'maxCount': maxCount
       };
 }

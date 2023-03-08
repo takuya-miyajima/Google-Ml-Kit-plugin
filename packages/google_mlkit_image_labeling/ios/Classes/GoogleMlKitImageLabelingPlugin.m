@@ -80,6 +80,9 @@
 #else
             result([FlutterError errorWithCode:@"ERROR_MISSING_MLKIT_FIREBASE_MODELS" message:@"You must define MLKIT_FIREBASE_MODELS=1 in your Podfile." details:nil]);
 #endif
+        } else if ([@"appLocal" isEqualToString:type]) {
+            MLKCustomImageLabelerOptions *options = [self getAppLocalOptions:dictionary];
+            labeler = [MLKImageLabeler imageLabelerWithOptions:options];
         } else {
             NSString *error = [NSString stringWithFormat:@"Invalid model type: %@", type];
             result([FlutterError errorWithCode:type
@@ -162,5 +165,17 @@
     [genericModelManager manageModel:model call:call result:result];
 }
 #endif
+
+- (MLKCustomImageLabelerOptions *)getAppLocalOptions:(NSDictionary *)optionsData {
+    NSNumber *conf = optionsData[@"confidenceThreshold"];
+    NSNumber *maxCount = optionsData[@"maxCount"];
+    NSString *path = optionsData[@"path"];
+    
+    MLKLocalModel *localModel = [[MLKLocalModel alloc] initWithPath:path];
+    MLKCustomImageLabelerOptions *options = [[MLKCustomImageLabelerOptions alloc] initWithLocalModel:localModel];
+    options.confidenceThreshold = conf;
+    options.maxResultCount = maxCount.intValue;
+    return options;
+}
 
 @end
