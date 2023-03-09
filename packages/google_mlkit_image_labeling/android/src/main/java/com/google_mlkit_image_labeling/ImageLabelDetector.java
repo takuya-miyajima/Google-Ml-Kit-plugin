@@ -85,6 +85,9 @@ public class ImageLabelDetector implements MethodChannel.MethodCallHandler {
                     return;
                 }
                 imageLabeler = ImageLabeling.getClient(labelerOptions);
+            } else if (type.equals("appLocal")) {
+                CustomImageLabelerOptions labelerOptions = getAppLocalOptions(options);
+                imageLabeler = ImageLabeling.getClient(labelerOptions);
             } else {
                 String error = "Invalid model type: " + type;
                 result.error(type, error, error);
@@ -142,6 +145,18 @@ public class ImageLabelDetector implements MethodChannel.MethodCallHandler {
         }
 
         return new CustomImageLabelerOptions.Builder(remoteModel)
+                .setConfidenceThreshold(confidenceThreshold)
+                .setMaxResultCount(maxCount)
+                .build();
+    }
+
+    //Options for labeler to work with custom model.
+    private CustomImageLabelerOptions getAppLocalOptions(Map<String, Object> labelerOptions) {
+        float confidenceThreshold = (float) (double) labelerOptions.get("confidenceThreshold");
+        int maxCount = (int) labelerOptions.get("maxCount");
+        String path = (String) labelerOptions.get("path");
+        LocalModel localModel = new LocalModel.Builder().setAbsoluteFilePath(path).build();
+        return new CustomImageLabelerOptions.Builder(localModel)
                 .setConfidenceThreshold(confidenceThreshold)
                 .setMaxResultCount(maxCount)
                 .build();
