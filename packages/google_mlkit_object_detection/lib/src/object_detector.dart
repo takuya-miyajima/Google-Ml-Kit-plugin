@@ -48,6 +48,7 @@ enum ObjectDetectorType {
   base,
   local,
   remote,
+  appLocal,
 }
 
 /// Options to configure the detector while using with base model.
@@ -174,6 +175,53 @@ class FirebaseObjectDetectorOptions extends ObjectDetectorOptions {
         'maxLabels': maximumLabelsPerObject,
       };
 }
+
+/// Options to configure the detector while using a local custom model in app data folder.
+class AppLocalObjectDetectorOptions extends ObjectDetectorOptions {
+  /// Indicates that it uses a custom local model to process images.
+  @override
+  final ObjectDetectorType type = ObjectDetectorType.appLocal;
+
+  /// Maximum number of labels that detector returns per object.
+  /// Must be positive.
+  /// Default is 10.
+  final int maximumLabelsPerObject;
+
+  /// The confidence threshold for labels returned by the object detector.
+  /// Labels returned by the object detector will have a confidence level higher or equal to the given threshold.
+  /// The threshold is a floating-point value and must be in range [0, 1].
+  /// Default is 0.5.
+  final double confidenceThreshold;
+
+  /// Path where the local custom model is stored.
+  final String modelPath;
+
+  /// Constructor to create an instance of [AppLocalObjectDetectorOptions].
+  AppLocalObjectDetectorOptions(
+      {required DetectionMode mode,
+      required this.modelPath,
+      required bool classifyObjects,
+      required bool multipleObjects,
+      this.maximumLabelsPerObject = 10,
+      this.confidenceThreshold = 0.5})
+      : super(
+            mode: mode,
+            classifyObjects: classifyObjects,
+            multipleObjects: multipleObjects);
+
+  /// Returns a json representation of an instance of [AppLocalObjectDetectorOptions].
+  @override
+  Map<String, dynamic> toJson() => {
+        'mode': mode.index,
+        'type': type.name,
+        'classify': classifyObjects,
+        'multiple': multipleObjects,
+        'path': modelPath,
+        'threshold': confidenceThreshold,
+        'maxLabels': maximumLabelsPerObject,
+      };
+}
+
 
 /// An object detected in an [InputImage] by [ObjectDetector].
 class DetectedObject {
