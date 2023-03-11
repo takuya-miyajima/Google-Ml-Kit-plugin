@@ -85,6 +85,9 @@ public class ObjectDetector implements MethodChannel.MethodCallHandler {
                     return;
                 }
                 objectDetector = ObjectDetection.getClient(detectorOptions);
+            } else if (type.equals("appLocal")) {
+                CustomObjectDetectorOptions detectorOptions = getAppLocalOptions(options);
+                objectDetector = ObjectDetection.getClient(detectorOptions);
             } else {
                 String error = "Invalid model type: " + type;
                 result.error(type, error, error);
@@ -169,6 +172,30 @@ public class ObjectDetector implements MethodChannel.MethodCallHandler {
         }
 
         CustomObjectDetectorOptions.Builder builder = new CustomObjectDetectorOptions.Builder(remoteModel);
+        builder.setDetectorMode(mode);
+        if (classify) builder.enableClassification();
+        if (multiple) builder.enableMultipleObjects();
+        builder.setMaxPerObjectLabelCount(maxLabels);
+        builder.setClassificationConfidenceThreshold((float) threshold);
+        return builder.build();
+    }
+
+    private CustomObjectDetectorOptions getAppLocalOptions(Map<String, Object> options) {
+        int mode = (int) options.get("mode");
+        mode = mode == 0 ?
+                CustomObjectDetectorOptions.STREAM_MODE :
+                CustomObjectDetectorOptions.SINGLE_IMAGE_MODE;
+        boolean classify = (boolean) options.get("classify");
+        boolean multiple = (boolean) options.get("multiple");
+        double threshold = (double) options.get("threshold");
+        int maxLabels = (int) options.get("maxLabels");
+        String path = (String) options.get("path");
+
+        LocalModel localModel = new LocalModel.Builder()
+                .setAbsoluteFilePath(path)
+                .build();
+
+        CustomObjectDetectorOptions.Builder builder = new CustomObjectDetectorOptions.Builder(localModel);
         builder.setDetectorMode(mode);
         if (classify) builder.enableClassification();
         if (multiple) builder.enableMultipleObjects();

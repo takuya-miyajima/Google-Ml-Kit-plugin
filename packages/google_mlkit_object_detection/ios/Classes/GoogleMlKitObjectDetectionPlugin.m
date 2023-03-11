@@ -80,6 +80,9 @@
 #else
             result([FlutterError errorWithCode:@"ERROR_MISSING_MLKIT_FIREBASE_MODELS" message:@"You must define MLKIT_FIREBASE_MODELS=1 in your Podfile." details:nil]);
 #endif
+        } else if ([@"appLocal" isEqualToString:type]) {
+            MLKCustomObjectDetectorOptions *options = [self getAppLocalOptions:dictionary];
+            objectDetector = [MLKObjectDetector objectDetectorWithOptions:options];
         } else {
             NSString *error = [NSString stringWithFormat:@"Invalid model type: %@", type];
             result([FlutterError errorWithCode:type
@@ -195,5 +198,23 @@
     [genericModelManager manageModel:model call:call result:result];
 }
 #endif
+
+- (MLKCustomObjectDetectorOptions *)getAppLocalOptions:(NSDictionary *)dictionary {
+    NSNumber *mode = dictionary[@"mode"];
+    BOOL classify = [[dictionary objectForKey:@"classify"] boolValue];
+    BOOL multiple = [[dictionary objectForKey:@"multiple"] boolValue];
+    NSNumber *threshold = dictionary[@"threshold"];
+    NSNumber *maxLabels = dictionary[@"maxLabels"];
+    NSString *path = dictionary[@"path"];
+    
+    MLKLocalModel *localModel = [[MLKLocalModel alloc] initWithPath:path];
+    MLKCustomObjectDetectorOptions *options =  [[MLKCustomObjectDetectorOptions alloc] initWithLocalModel:localModel];
+    options.detectorMode = mode.intValue == 0 ? MLKObjectDetectorModeStream : MLKObjectDetectorModeSingleImage;
+    options.shouldEnableClassification = classify;
+    options.shouldEnableMultipleObjects = multiple;
+    options.classificationConfidenceThreshold = threshold;
+    options.maxPerObjectLabelCount = maxLabels.integerValue;
+    return options;
+}
 
 @end
