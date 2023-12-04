@@ -22,6 +22,11 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    // Conditional for compatibility with AGP <4.2.
+    if (project.android.hasProperty("namespace")) {
+        namespace 'com.google_mlkit_pose_detection'
+    }
+    
     compileSdkVersion 31
 
     compileOptions {
@@ -35,6 +40,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.mlkit:pose-detection:18.0.0-beta2'
-    implementation 'com.google.mlkit:pose-detection-accurate:18.0.0-beta2'
+    implementation 'com.google.mlkit:pose-detection:18.0.0-beta3'
+    implementation 'com.google.mlkit:pose-detection-accurate:18.0.0-beta3'
 }

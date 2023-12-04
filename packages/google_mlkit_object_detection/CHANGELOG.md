@@ -1,3 +1,26 @@
+## 0.11.0
+
+* Fix: Update build.gradle, support AGP 8.
+* Update README.
+
+## 0.10.0
+
+* Update path for Custom models.
+* Update README with Custom models tutorial.
+
+## 0.9.0
+
+* Update README.
+* Update dependencies.
+
+## 0.8.0
+
+* Update dependencies.
+
+## 0.7.0
+
+* Update dependencies.
+
 ## 0.6.0
 
 * Update dependencies.
