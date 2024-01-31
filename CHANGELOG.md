@@ -3,6 +3,351 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-04
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_ml_kit` - `v0.16.2`](#google_ml_kit---v0162)
+- [`google_mlkit_barcode_scanning` - `v0.9.0`](#google_mlkit_barcode_scanning---v090)
+- [`google_mlkit_entity_extraction` - `v0.10.0`](#google_mlkit_entity_extraction---v0100)
+- [`google_mlkit_image_labeling` - `v0.9.0`](#google_mlkit_image_labeling---v090)
+- [`google_mlkit_object_detection` - `v0.10.0`](#google_mlkit_object_detection---v0100)
+- [`google_mlkit_pose_detection` - `v0.9.0`](#google_mlkit_pose_detection---v090)
+- [`google_mlkit_text_recognition` - `v0.10.0`](#google_mlkit_text_recognition---v0100)
+
+---
+
+#### `google_ml_kit` - `v0.16.2`
+
+* Update dependencies.
+
+#### `google_mlkit_barcode_scanning` - `v0.9.0`
+
+* fix: barcode Rect.zero if rect not found.
+
+#### `google_mlkit_entity_extraction` - `v0.10.0`
+
+* fix: `DateTimeEntity.timestamp` result is expected in milliseconds, not seconds, for iOS.
+* feat: Update `toString()` method for `Entity` classes.
+
+#### `google_mlkit_image_labeling` - `v0.9.0`
+
+* Update path for Custom models.
+* Update README with Custom models tutorial.
+
+#### `google_mlkit_object_detection` - `v0.10.0`
+
+* Update path for Custom models.
+* Update README with Custom models tutorial.
+
+#### `google_mlkit_pose_detection` - `v0.9.0`
+
+* Update dependencies.
+
+#### `google_mlkit_text_recognition` - `v0.10.0`
+
+* Update dependencies.
+
+## 2023-07-06
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_ml_kit` - `v0.16.1`](#google_ml_kit---v0161)
+- [`google_mlkit_barcode_scanning` - `v0.8.0`](#google_mlkit_barcode_scanning---v080)
+- [`google_mlkit_commons` - `v0.5.0`](#google_mlkit_commons---v050)
+- [`google_mlkit_digital_ink_recognition` - `v0.9.0`](#google_mlkit_digital_ink_recognition---v090)
+- [`google_mlkit_entity_extraction` - `v0.9.0`](#google_mlkit_entity_extraction---v090)
+- [`google_mlkit_face_detection` - `v0.8.0`](#google_mlkit_face_detection---v080)
+- [`google_mlkit_face_mesh_detection` - `v0.0.1`](#google_mlkit_face_mesh_detection---v001)
+- [`google_mlkit_image_labeling` - `v0.8.0`](#google_mlkit_image_labeling---v080)
+- [`google_mlkit_language_id` - `v0.8.0`](#google_mlkit_language_id---v080)
+- [`google_mlkit_object_detection` - `v0.9.0`](#google_mlkit_object_detection---v090)
+- [`google_mlkit_pose_detection` - `v0.8.0`](#google_mlkit_pose_detection---v080)
+- [`google_mlkit_selfie_segmentation` - `v0.5.0`](#google_mlkit_selfie_segmentation---v050)
+- [`google_mlkit_smart_reply` - `v0.8.0`](#google_mlkit_smart_reply---v080)
+- [`google_mlkit_text_recognition` - `v0.9.0`](#google_mlkit_text_recognition---v090)
+- [`google_mlkit_translation` - `v0.8.0`](#google_mlkit_translation---v080)
+
+---
+
+#### `google_ml_kit` - `v0.16.1`
+
+* Update dependencies: Add Face Mesh Detector.
+
+#### `google_mlkit_barcode_scanning` - `v0.8.0`
+
+* fix: boundingBox and cornerPoint.
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_commons` - `v0.5.0`
+
+* Update README: Improve Image rotation for Android.
+
+#### `google_mlkit_digital_ink_recognition` - `v0.9.0`
+
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_entity_extraction` - `v0.9.0`
+
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_face_detection` - `v0.8.0`
+
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_face_mesh_detection` - `v0.0.1`
+
+* Initial release
+
+#### `google_mlkit_image_labeling` - `v0.8.0`
+
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_language_id` - `v0.8.0`
+
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_object_detection` - `v0.9.0`
+
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_pose_detection` - `v0.8.0`
+
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_selfie_segmentation` - `v0.5.0`
+
+* fix: Selfie Segmentation data casting.
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_smart_reply` - `v0.8.0`
+
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_text_recognition` - `v0.9.0`
+
+* Update README.
+* Update dependencies.
+
+#### `google_mlkit_translation` - `v0.8.0`
+
+* Update README.
+* Update dependencies.
+
+## 2023-06-02
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_mlkit_text_recognition` - `v0.8.1`](#google_mlkit_text_recognition---v081)
+
+---
+
+#### `google_mlkit_text_recognition` - `v0.8.1`
+
+* Fix: Confidence and angle only available for Android.
+* Feat: Add `TextSymbol`, only available for Android.
+
+## 2023-06-01
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_ml_kit` - `v0.15.0`](#google_ml_kit---v0150)
+- [`google_mlkit_barcode_scanning` - `v0.7.0`](#google_mlkit_barcode_scanning---v070)
+- [`google_mlkit_digital_ink_recognition` - `v0.8.0`](#google_mlkit_digital_ink_recognition---v080)
+- [`google_mlkit_entity_extraction` - `v0.8.0`](#google_mlkit_entity_extraction---v080)
+- [`google_mlkit_face_detection` - `v0.7.0`](#google_mlkit_face_detection---v070)
+- [`google_mlkit_image_labeling` - `v0.7.0`](#google_mlkit_image_labeling---v070)
+- [`google_mlkit_language_id` - `v0.7.0`](#google_mlkit_language_id---v070)
+- [`google_mlkit_object_detection` - `v0.8.0`](#google_mlkit_object_detection---v080)
+- [`google_mlkit_pose_detection` - `v0.7.0`](#google_mlkit_pose_detection---v070)
+- [`google_mlkit_selfie_segmentation` - `v0.4.0`](#google_mlkit_selfie_segmentation---v040)
+- [`google_mlkit_smart_reply` - `v0.7.0`](#google_mlkit_smart_reply---v070)
+- [`google_mlkit_text_recognition` - `v0.7.0`](#google_mlkit_text_recognition---v070)
+- [`google_mlkit_translation` - `v0.7.0`](#google_mlkit_translation---v070)
+
+---
+
+#### `google_ml_kit` - `v0.15.0`
+
+* Update dependencies.
+
+#### `google_mlkit_barcode_scanning` - `v0.7.0`
+
+* Update dependencies.
+
+#### `google_mlkit_digital_ink_recognition` - `v0.8.0`
+
+* Update dependencies.
+
+#### `google_mlkit_entity_extraction` - `v0.8.0`
+
+* Fix: Pass `referenceTime` to native API when calling `annotateText`.
+* Update dependencies.
+
+#### `google_mlkit_face_detection` - `v0.7.0`
+
+* Update dependencies.
+
+#### `google_mlkit_image_labeling` - `v0.7.0`
+
+* Update dependencies.
+
+#### `google_mlkit_language_id` - `v0.7.0`
+
+* Fix: Pass `id` to native API when calling `identifyLanguage`.
+* Update dependencies.
+
+#### `google_mlkit_object_detection` - `v0.8.0`
+
+* Update dependencies.
+
+#### `google_mlkit_pose_detection` - `v0.7.0`
+
+* Update dependencies.
+
+#### `google_mlkit_selfie_segmentation` - `v0.4.0`
+
+* Update dependencies.
+
+#### `google_mlkit_smart_reply` - `v0.7.0`
+
+* Update dependencies.
+
+#### `google_mlkit_text_recognition` - `v0.7.0`
+
+* Fix: Add confidence and angle in object response for `TextLine` and `TextElement`.
+* Update dependencies.
+
+#### `google_mlkit_translation` - `v0.7.0`
+
+* Update dependencies.
+
+## 2023-05-31
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_mlkit_commons` - `v0.4.0`](#google_mlkit_commons---v040)
+
+---
+
+#### `google_mlkit_commons` - `v0.4.0`
+
+* __BREAKING:__ Update InputImage.
+* __BREAKING:__ Rename InputImageData -> InputImageMetadata.
+* __BREAKING:__ Remove InputImagePlaneMetadata.
+* Only support nv21 for Android and bgra8888 for iOS.
+
+## 2023-04-19
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_ml_kit` - `v0.14.0`](#google_ml_kit---v0140)
+- [`google_mlkit_barcode_scanning` - `v0.6.0`](#google_mlkit_barcode_scanning---v060)
+- [`google_mlkit_commons` - `v0.3.0`](#google_mlkit_commons---v030)
+- [`google_mlkit_digital_ink_recognition` - `v0.7.0`](#google_mlkit_digital_ink_recognition---v070)
+- [`google_mlkit_entity_extraction` - `v0.7.0`](#google_mlkit_entity_extraction---v070)
+- [`google_mlkit_face_detection` - `v0.6.0`](#google_mlkit_face_detection---v060)
+- [`google_mlkit_image_labeling` - `v0.6.0`](#google_mlkit_image_labeling---v060)
+- [`google_mlkit_language_id` - `v0.6.0`](#google_mlkit_language_id---v060)
+- [`google_mlkit_object_detection` - `v0.7.0`](#google_mlkit_object_detection---v070)
+- [`google_mlkit_pose_detection` - `v0.6.0`](#google_mlkit_pose_detection---v060)
+- [`google_mlkit_selfie_segmentation` - `v0.3.0`](#google_mlkit_selfie_segmentation---v030)
+- [`google_mlkit_smart_reply` - `v0.6.0`](#google_mlkit_smart_reply---v060)
+- [`google_mlkit_text_recognition` - `v0.6.0`](#google_mlkit_text_recognition---v060)
+- [`google_mlkit_translation` - `v0.6.0`](#google_mlkit_translation---v060)
+
+---
+
+#### `google_ml_kit` - `v0.14.0`
+
+* Update dependencies.
+
+#### `google_mlkit_barcode_scanning` - `v0.6.0`
+
+* Update dependencies.
+
+#### `google_mlkit_commons` - `v0.3.0`
+
+* Update dependencies.
+
+#### `google_mlkit_digital_ink_recognition` - `v0.7.0`
+
+* Update dependencies.
+
+#### `google_mlkit_entity_extraction` - `v0.7.0`
+
+* Update dependencies.
+
+#### `google_mlkit_face_detection` - `v0.6.0`
+
+* Update dependencies.
+
+#### `google_mlkit_image_labeling` - `v0.6.0`
+
+* Update dependencies.
+
+#### `google_mlkit_language_id` - `v0.6.0`
+
+* Update dependencies.
+
+#### `google_mlkit_object_detection` - `v0.7.0`
+
+* Update dependencies.
+
+#### `google_mlkit_pose_detection` - `v0.6.0`
+
+* Update dependencies.
+
+#### `google_mlkit_selfie_segmentation` - `v0.3.0`
+
+* Update dependencies.
+
+#### `google_mlkit_smart_reply` - `v0.6.0`
+
+* Update dependencies.
+
+#### `google_mlkit_text_recognition` - `v0.6.0`
+
+* Update dependencies.
+
+#### `google_mlkit_translation` - `v0.6.0`
+
+* Update dependencies.
+
 ## 2022-11-04
 
 ### Changes
@@ -233,7 +578,7 @@ Packages with changes:
 
 #### `google_ml_kit` - `v0.11.0`
 
-* Add new plugin to umbrella: [google\_mlkit\_selfie\_segmentation](https://github.com/bharat-biradar/Google-Ml-Kit-plugin/tree/master/packages/google_mlkit_selfie_segmentation).
+* Add new plugin to umbrella: [google\_mlkit\_selfie\_segmentation](https://github.com/flutter-ml/google_ml_kit_flutter/tree/master/packages/google_mlkit_selfie_segmentation).
 * Update dependencies.
 
 #### `google_mlkit_barcode_scanning` - `v0.3.0`

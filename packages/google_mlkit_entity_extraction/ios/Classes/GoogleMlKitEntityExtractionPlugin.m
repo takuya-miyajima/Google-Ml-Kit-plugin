@@ -60,6 +60,12 @@
     if ([timezone isKindOfClass: [NSString class]] && timezone.length > 0) {
         params.referenceTimeZone = [NSTimeZone timeZoneWithAbbreviation:timezone];
     }
+
+    NSString *time = parameters[@"time"];
+    if ([time isKindOfClass: [NSNumber class]]) {
+        // NSTimeInterval should is expressed in seconds, not milliseconds
+        params.referenceTime = [NSDate dateWithTimeIntervalSince1970: time.doubleValue / 1000];
+    }
     
     NSString *locale = parameters[@"locale"];
     if ([locale isKindOfClass: [NSString class]] && locale.length > 0) {
@@ -149,7 +155,8 @@
                     } else if ([entity.entityType isEqualToString: MLKEntityExtractionEntityTypeDateTime]) {
                         type = 2;
                         entityData[@"dateTimeGranularity"] = @(entity.dateTimeEntity.dateTimeGranularity);
-                        entityData[@"timestamp"] = @(entity.dateTimeEntity.dateTime.timeIntervalSince1970);
+                        // result is expected in milliseconds, not seconds.
+                        entityData[@"timestamp"] = @(entity.dateTimeEntity.dateTime.timeIntervalSince1970 * 1000);
                     } else if ([entity.entityType isEqualToString: MLKEntityExtractionEntityTypeEmail]) {
                         type = 3;
                     } else if ([entity.entityType isEqualToString: MLKEntityExtractionEntityTypeFlightNumber]) {

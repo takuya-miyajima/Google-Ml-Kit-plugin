@@ -1,3 +1,17 @@
+## 0.8.0
+
+* Update README.
+* Update dependencies.
+
+## 0.7.0
+
+* Fix: Pass `id` to native API when calling `identifyLanguage`.
+* Update dependencies.
+
+## 0.6.0
+
+* Update dependencies.
+
 ## 0.5.0
 
 * Update dependencies.
